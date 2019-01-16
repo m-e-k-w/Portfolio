@@ -1,0 +1,158 @@
+<!--Kod skapad av Maria westlund */
+2018-12-08 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <h1>
+        Nyheter
+    </h1>
+<div id="shownews"></div>
+<div id="app"></div>
+
+<div id="nynyhet">
+    Rubrik<input type="text" id="newsheadline" >
+  <!--  Datum<input type="date" id="newsdate"> -->
+    text<input type="text" id="newstext">
+    <button id="AddNews">Lägg till nynyhet</button>
+</div>
+    <script>
+
+
+
+
+        var AddNews = document.getElementById("AddNews")
+     var shownews = document.getElementById("shownews");
+        window.addEventListener("load", loadfront, false);
+        AddNews.addEventListener('click', addnews, false);
+
+      
+ //funktion som hämtar information om län och sen skickar det till displayfront
+function loadfront() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+            var jsoninf = JSON.parse(xhttp.responseText);
+
+
+            console.log(jsoninf);
+             
+    
+            displayfront(jsoninf);
+           // deletefront(jsoninf);
+        } else {
+            return "undefiend";
+        }
+    };
+    xhttp.open('GET', 'http://localhost:3000/News', true);
+    xhttp.send();
+}
+
+//funktion som loopar igenom informationen från loadfront 
+function displayfront(jsoninf) {
+
+   
+    for (var i = 0; i < jsoninf.length; i++) {
+        //console.log(jsoninf[i].kurskod);
+
+        shownews.innerHTML += 
+        "<div class='coursdiv'> <h3>Id: " + jsoninf[i]._id + "</h3>" +
+        "<p>Kurskod: " + jsoninf[i].newsHeadline + "</p>" +
+        "<p>Kursnamn: " + jsoninf[i].newsText + "</p>" +
+        "<button id="+jsoninf[i]._id+" > Delete </button></div>";
+
+       
+    }
+  //var delid = this.id;
+  // deletefront(delid);
+
+}
+
+// I could not get this part to work what I'm missing is how to take the id from the delete button 
+//and implement it in de deletefront function
+
+function deletefront() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+           // var jsoninf = JSON.parse(xhttp.responseText);
+           var delid = this.event.target.value;
+           // displayfront(jsoninf);
+          console.log(delid);
+        } else {
+            return "undefiend";
+        }
+      
+    };
+    xhttp.open('DELETE', 'http://localhost:3000/News/'+ delid, true);
+    xhttp.send();
+}
+
+// Lägg till bil
+function addnews() {
+   
+   
+/*
+  var newsheadlineV = document.getElementById("newsheadline").value;
+    var newstextV = document.getElementById("newstext").value;
+    // AJAX-anrop
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:3000/News",
+        data: { newsHeadline: newsheadlineV, newsText: newstextV}
+    }).done(function(response) {
+    //  console.log(response);
+*/
+
+
+
+
+   
+  //  });
+
+ 
+
+var xhr = new XMLHttpRequest();
+xhr.open('POST', 'http://localhost:3000/News', true);
+var newsheadlineV = document.getElementById("newsheadline").value;
+    var newstextV = document.getElementById("newstext").value;
+xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+xhr.onload = function () {
+  
+    
+};
+xhr.send('newsHeadline='+newsheadlineV + '&newsText='+newstextV);
+
+     loadfront();  
+}
+
+
+/*deletes user*/
+$(document).on('click', 'button', function() {
+       $.ajaxSetup({
+     		url: 'http://localhost:3000/News/'+this.id,
+    		type: 'DELETE',
+				dataType: "json",    		
+				success: function(data){
+                    location.reload();
+                    console.log(this.id);
+	    	}	    	  	
+        });
+      	$.ajax();
+
+		});
+
+    </script>
+
+</body>
+</html>
