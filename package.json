@@ -15,7 +15,8 @@
     "mongoose": "^5.4.4",
     "morgan": "~1.9.0",
     "react": "^16.7.0",
-    "react-responsive-modal": "^3.5.1"
+    "react-responsive-modal": "^3.5.1",
+    "ws": "^6.1.2"
   },
   "description": "Project school work",
   "main": "app.js",
