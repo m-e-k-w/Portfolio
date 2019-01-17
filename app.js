@@ -10,6 +10,16 @@ var newsRouter = require('./routes/News');
 
 var app = express();
 
+  /*"Middleware" 
+  Gör webbtjänsterna tillgängliga även från andra domäner
+  */
+ app.all('/*', function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,PATCH,POST,DELETE");
+  next();
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -36,15 +46,7 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
 
-  /*"Middleware" 
-  Gör webbtjänsterna tillgängliga även från andra domäner
-  */
-  app.all('/*', function (req, res, next) {
-      res.header("Access-Control-Allow-Origin", "*");
-      res.header("Access-Control-Allow-Headers", "X-Requested-With");
-      res.header("Access-Control-Allow-Methods", "GET,PUT,PATCH,POST,DELETE");
-      next();
-  });
+
 
   // render the error page
   res.status(err.status || 500);
