@@ -36,10 +36,14 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
 
-  app.all('/', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    next()
+  /*"Middleware" 
+  Gör webbtjänsterna tillgängliga även från andra domäner
+  */
+  app.all('/*', function (req, res, next) {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Headers", "X-Requested-With");
+      res.header("Access-Control-Allow-Methods", "GET,PUT,PATCH,POST,DELETE");
+      next();
   });
 
   // render the error page
