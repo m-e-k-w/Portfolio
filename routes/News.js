@@ -18,6 +18,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Skapa statisk sökväg
 app.use(express.static(path.join(__dirname, 'public')));
 
+  /*"Middleware" 
+  Gör webbtjänsterna tillgängliga även från andra domäner
+  */
+ app.all('/*', function (req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*");
+	//res.header("Access-Control-Allow-Headers", "X-Requested-With");
+	res.header('Access-Control-Allow-Headers', 'Content-Type');
+	res.header("Access-Control-Allow-Methods", "GET,PUT,PATCH,POST,DELETE");
+	next();
+  });
+  
 
 
 /*************get courses****************/
@@ -87,22 +98,21 @@ router.delete('/:id', function(req, res, next) {
 /*update a course*/
 router.put('/:id', function(req, res, next) {
 
-	News.findById({_id: req.params.id}, function(err, News){
-	
+	News.findById({_id: req.params.id}, function(err){
 		var news = new News();
 
 	
-		news.newsHeadline = req.body.newsHeadline;
-		news.newsText = req.body.newsText;
-	
-		news.save(function(err){
-			if(err){
-				res.json(err);
-	
-			}else{
-				res.json({message:"Nyhet lagrad"})
-			}
-		});
+	news.newsHeadline = req.body.newsHeadline;
+	news.newsText = req.body.newsText;
+
+	news.save(function(err){
+		if(err){
+			res.json(err);
+
+		}else{
+			res.json({message:"Nyhet lagrad"})
+		}
+	});
 	})
 
 	
