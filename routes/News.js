@@ -87,10 +87,9 @@ router.delete('/:id', function(req, res, next) {
 /*update a course*/
 router.put('/:id', function(req, res, next) {
 
-	News.findById({_id: req.params.id}, function(err){
+	News.findById({_id: req.params.id}, function(err, News){
 	
 
-	
 	news.newsHeadline = req.body.newsHeadline;
 	news.newsText = req.body.newsText;
 
