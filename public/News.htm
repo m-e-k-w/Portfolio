@@ -150,7 +150,27 @@ $(document).on('click', 'button', function() {
         });
       	$.ajax();
 
-		});
+        });
+        
+/*
+
+function updatefront() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+           var jsoninf = JSON.parse(xhttp.responseText);
+           var delid = this.event.target.value;
+           // displayfront(jsoninf);
+          console.log(delid);
+        } else {
+            return "undefiend";
+        }
+      
+    };
+    xhttp.open('PUT', 'http://localhost:3000/News/'+ delid, true);
+    xhttp.send();
+}*/
 
     </script>
 
