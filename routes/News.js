@@ -93,13 +93,13 @@ router.delete('/:id', function(req, res, next) {
 router.put('/:id', function(req, res, next) {
 
 	News.findById({_id: req.params.id}, function(err){
-		var news = new News();
+	
 
 	
 	news.newsHeadline = req.body.newsHeadline;
 	news.newsText = req.body.newsText;
 
-	news.save(function(err){
+	news.update(function(err){
 		if(err){
 			res.json(err);
 
