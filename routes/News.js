@@ -99,7 +99,7 @@ router.put('/:id', function(req, res, next) {
 	news.newsHeadline = req.body.newsHeadline;
 	news.newsText = req.body.newsText;
 
-	news.update(function(err){
+	news.save(function(err){
 		if(err){
 			res.json(err);
 
