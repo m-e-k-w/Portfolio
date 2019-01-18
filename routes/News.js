@@ -89,18 +89,20 @@ router.put('/:id', function(req, res, next) {
 
 	News.findById({_id: req.params.id}, function(err, News){
 	
+		var news = new News();
 
-	news.newsHeadline = req.body.newsHeadline;
-	news.newsText = req.body.newsText;
-
-	news.save(function(err){
-		if(err){
-			res.json(err);
-
-		}else{
-			res.json({message:"Nyhet lagrad"})
-		}
-	});
+	
+		news.newsHeadline = req.body.newsHeadline;
+		news.newsText = req.body.newsText;
+	
+		news.save(function(err){
+			if(err){
+				res.json(err);
+	
+			}else{
+				res.json({message:"Nyhet lagrad"})
+			}
+		});
 	})
 
 	
