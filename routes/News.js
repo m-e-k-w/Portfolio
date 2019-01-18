@@ -99,7 +99,7 @@ router.delete('/:id', function(req, res, next) {
 router.put('/:id', function(req, res, next) {
 
 	News.findById({_id: req.params.id}, function(err){
-		var news = new News();
+	//	var news = new News();
 
 	
 	news.newsHeadline = req.body.newsHeadline;
