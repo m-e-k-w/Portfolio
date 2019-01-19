@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,10 +13,10 @@
     <div id="addnew">       
         <div  class="addingnews">
 
-              <label for="">Rubrik: </label>
-               <input type="text" class="inputnews"  v-on:keyup.13="postPost" v-model="postNews.newsHeadline"/>
-              <label for="">Text: </label> 
-              <textarea class="inputText" type="text" class="inputnews"  v-on:keyup.13="postPost" v-model="postNews.newsText"></textarea>
+              <label for="newsheadline">Rubrik: </label>
+               <input type="text" class="inputnews" id="newsheadline" v-on:keyup.13="postPost" v-model="postNews.newsHeadline"/>
+              <label for="newstext">Text: </label> 
+              <textarea class="inputText" id="newstext" v-on:keyup.13="postPost" v-model="postNews.newsText"></textarea>
 
               <button type="submit" @click="postPost">Submit</button>
         </div>
@@ -27,14 +27,14 @@
     <div id="appadmin">
 
             <div>
-                    <li v-for="mynews, i in MyNews" :key="mynews._id">
+                    <div v-for="mynews, i in MyNews" :key="mynews._id">
                       <div v-if="editNews === mynews._id">
                         <input v-model="mynews.newsHeadline" v-on:keyup.13="updateNews(mynews)"/>
                         <input v-model="mynews.newsText" v-on:keyup.13="updateNews(mynews)"/>
-                        <button v-on:click="updateNews(mynews)">spara</button>
+                        <button class="submit-button" v-on:click="updateNews(mynews)">spara</button>
                   
                       </div>
-                      <div v-else>
+                      <div class="admin-show-data" v-else >
                       <h2>{{mynews.newsHeadline}}</h2> 
                       <h4>{{mynews.newsDate}}</h4>
                       <p>{{mynews.newsText}}</p>
@@ -42,7 +42,7 @@
                       <button v-on:click="deleteNews(mynews._id, i)">ta bort</button>
                       </div>
                   
-                    </li>
+                    </div>
                     </div>
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

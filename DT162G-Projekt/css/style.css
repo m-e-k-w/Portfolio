@@ -1,0 +1,286 @@
+
+body {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    float: left;
+}
+
+button {
+    float: left;
+}
+
+h1 {
+    font-family: 'Segoe UI', Tahoma, 'Geneva', Verdana, sans-serif;
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+h2 {
+    font-family: Verdana, 'Geneva', Tahoma, sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+h3 {
+    font-family: 'Segoe UI', Tahoma, 'Geneva', Verdana, sans-serif;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+nav {
+    position: fixed;
+    background-color: rgb(255, 244, 244);
+    width: 100%;
+    padding: 10px;
+}
+
+ul {
+    float: right;
+}
+
+li {
+    list-style: none;
+    margin-right: 50px;
+    display: inline;
+    font-size: 1.3em;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+.top-logo {
+    max-width: 20%;
+    float: left;
+}
+
+.inputnews {
+    border: 3px solid black;
+}
+
+.img-logo {
+    width: 20%;
+    margin-left: 40%;
+    margin-top: 15%;
+    margin-bottom: 15%;
+}
+
+.main-container {
+    margin: 0px;
+    padding: 0px;
+    float: left;
+}
+
+.main-box {
+    margin: 0px;
+    padding: 0px;
+    float: left;
+    background-color: rgb(255, 247, 223);
+}
+
+.main-start {
+    margin-bottom: 15%;
+    padding: 0px;
+    min-height: 100%;
+    width: 100%;
+    float: left;
+}
+
+/*********ABOUT*************/
+
+#about {
+    float: left;
+    width: 100%;
+}
+
+.about-text {
+    float: left;
+    width: 30%;
+    margin-left: 10%;
+}
+
+#about img {
+    float: right;
+    width: 30%;
+    height: 250px;
+    margin-right: 10%;
+}
+
+/*********NEWS*************/
+
+#news {
+    float: left;
+    width: 100%;
+    margin-top: 300px;
+    background-color: rgb(255, 247, 223);
+}
+
+#news h1 {
+    text-align: center;
+}
+
+#news h3 {
+    text-align: center;
+}
+
+.news-container {
+    width: 66%;
+    height: 500px;
+    float: left;
+    margin-left: 16.5%;
+    margin-top: 30px;
+    margin-bottom: 100px;
+    background-color: rgb(245, 242, 235);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+    overflow-y: scroll;
+}
+
+#app1 {
+    padding-left: 200px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 200px;
+}
+
+.news-container h1 {
+    margin-left: 200px;
+}
+
+.news-container h3 {
+    margin-left: 200px;
+}
+
+#news h2 {
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+#news h6 {
+    color: rgb(85, 19, 19);
+    margin-bottom: 5px;
+    margin-top: 0px;
+}
+
+#news p {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px dotted #ce335a;
+}
+
+/*****************modal*********************/
+
+.modal-div {
+    float: left;
+    width: 20%;
+    margin-left: 10%;
+}
+
+#main-modal-container {
+    width: 100%;
+    margin-left: 0%;
+    float: left;
+    padding-top: 100px;
+}
+
+.img-pre-modal {
+    height: 450px;
+    overflow: hidden;
+    margin-left: -10px;
+    float: left;
+}
+
+.button-modal {
+    height: 500px;
+    width: 100%;
+    overflow: hidden;
+    background-color: #ce335a;
+    border: none;
+    float: left;
+    margin: 0px;
+    padding: 0px;
+}
+
+#main-modal-container h2 {
+    font-size: 2.7em;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, 'Geneva', Verdana, sans-serif;
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+.modal-content {
+    width: 150%;
+    float: left;
+    margin-left: -25%;
+}
+
+.modal-body {
+    width: 100%;
+    float: left;
+}
+
+.modal-body img{
+    width: 50%;
+    margin-left: 25%;
+ 
+}
+
+.modal-body p{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 50px;
+ 
+}
+.modal-footer{
+    width: 100%;
+    float: left;
+}
+
+.buttonclose{
+    border: 1px solid #ce335a;
+    border-radius: 5px;
+    padding: 5px;
+    float: none;
+    position: relative;
+
+}
+/************admin******/
+
+.addingnews {
+    margin-top: 100px;
+    margin-left: 200px;
+}
+
+#appadmin {
+    margin-top: 100px;
+    margin-left: 200px;
+}
+
+.inputText {
+    height: 300px;
+    width: 300px;
+    display: block;
+}
+
+label {
+    display: block;
+}
+
+
+.admin-show-data{
+    margin-top: 20px;
+    border-bottom: 3px solid #ce335a;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+}
+
+.submit-button{
+    display: block;
+}
