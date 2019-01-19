@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-    // Skapa ett db-schema
+    // Skapa ett db-schema med hjälp av mongoose
     var Schema = mongoose.Schema;
     var newsSchema = new Schema({
         _Id: String,

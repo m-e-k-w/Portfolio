@@ -29,9 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 	next();
   });
   
-
-
-/*************get courses****************/
+/*************get news****************/
 router.get('/', function(req, res, next) {
 
 	News.find(function(err, News){
@@ -45,10 +43,7 @@ router.get('/', function(req, res, next) {
 });
     
 
-
-
-
-/**GET specific course id************************/
+/**GET specific news id************************/
 router.get('/:id', function(req, res, next) {
 
 	News.findById(req.params.id, function(err, News){
@@ -62,6 +57,7 @@ router.get('/:id', function(req, res, next) {
 
 	});
 
+	/*****add new news*****/
 router.post('/', function(req, res, next){
 	var news = new News();
 
@@ -99,9 +95,7 @@ router.delete('/:id', function(req, res, next) {
 router.put('/:id', function(req, res, next) {
 
 	News.findById({_id: req.params.id}, function(err, News){
-	//	var news = new News();
 
-	
 	News.newsHeadline = req.body.newsHeadline;
 	News.newsText = req.body.newsText;
 
@@ -114,10 +108,7 @@ router.put('/:id', function(req, res, next) {
 		}
 	});
 	})
-
-	
 });
-
 
 
 module.exports = router;
